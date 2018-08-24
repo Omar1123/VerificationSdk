@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.company.jak.faceverification"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+project.ext.archivesBaseName = "FaceVerification"
+
+project.ext.ndfFiles = ["FacesDetectSegmentsOrientation.ndf",
+                        "FacesDetectSegmentsFeaturePointsTrack.ndf",
+                        "FacesDetectSegmentsFeaturePointsDetect.ndf",
+                        "FacesDetectSegmentsLiveness.ndf",
+                        "FacesCreateTemplateSmall.ndf",
+                        "FacesCreateTemplateMediumLite.ndf"]
+
+project.ext.nativeLibsInclude = ["**/libjnidispatch.so",
+                                 "**/libNCore.so",
+                                 "**/libNLicensing.so",
+                                 "**/libNFaceVerification.so",
+                                 "**/libNGui.so",
+                                 "**/libNMedia.so",
+                                 "**/libNMediaProc.so",
+                                 "**/libopenblas.so"]
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+
+    compile ":neurotec-core-android"
+    compile ":neurotec-media-android"
+    compile ":neurotec-media-processing-android"
+    compile ":neurotec-face-verification-android"
+    compile ":neurotec-face-verification-gui-android"
+    compile ":neurotec-gui-android"
+    compile ":jna"
+    compile ":neurotec-licensing-android"
+    compile(name: 'neurotec-licensing-gui-android', ext: 'aar')
+    testImplementation 'junit:junit:4.12'
+}

@@ -1,0 +1,58 @@
+package com.company.jak.faceverification.gui;
+
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
+import android.os.Bundle;
+
+import com.company.jak.faceverification.R;
+
+/**
+ * Created by jake on 19/08/18.
+ */
+
+public class InfoDialogFragment extends DialogFragment {
+
+    // ===========================================================
+    // Private static fields
+    // ===========================================================
+
+    private static final String EXTRA_MESSAGE = "message";
+
+    // ===========================================================
+    // Public static methods
+    // ===========================================================
+
+    public static InfoDialogFragment newInstance(String message) {
+        InfoDialogFragment frag = new InfoDialogFragment();
+        Bundle args = new Bundle();
+        args.putString(EXTRA_MESSAGE, message);
+        frag.setArguments(args);
+        return frag;
+    }
+
+    // ===========================================================
+    // Private constructor
+    // ===========================================================
+
+    private InfoDialogFragment() {
+    }
+
+    // ===========================================================
+    // Public methods
+    // ===========================================================
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        String message = getArguments().getString(EXTRA_MESSAGE);
+        return new AlertDialog.Builder(getActivity())
+                .setMessage(message)
+                .setPositiveButton(R.string.msg_ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        dialog.cancel();
+                    }
+                }).create();
+    }
+
+}

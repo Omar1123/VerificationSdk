@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_matching"
+        android:key="pref_key_matching">
+
+        <com.neurotec.samples.faceverification.gui.NumberPickerPreference
+            android:key="key_pref_matching_th"
+            android:title="@string/msg_matching_th"
+            android:defaultValue="48" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_extraction"
+        android:key="pref_key_extraction">
+
+        <com.neurotec.samples.faceverification.gui.NumberPickerPreference
+            android:key="key_pref_quality_th"
+            android:title="@string/msg_quality_th"
+            android:defaultValue="50" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_liveness"
+        android:key="pref_key_liveness">
+
+        <com.neurotec.samples.faceverification.gui.NumberPickerPreference
+            android:key="key_pref_liveness_th"
+            android:title="@string/msg_liveness_th"
+            android:defaultValue="50" />
+
+        <ListPreference
+            android:key="key_pref_liveness_mode"
+            android:title="@string/msg_liveness_mode"
+            android:defaultValue="NONE"
+            android:entries="@array/arr_liveness_modes"
+            android:entryValues="@array/arr_liveness_modes"
+            />
+    </PreferenceCategory>
+
+</PreferenceScreen>

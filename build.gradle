@@ -1,0 +1,48 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    System.properties['com.android.build.gradle.overrideVersionCheck'] = 'true'
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+project.ext.archivesBaseName = "FaceVerification"
+
+project.ext.ndfFiles = ["FacesDetectSegmentsOrientation.ndf",
+                        "FacesDetectSegmentsFeaturePointsTrack.ndf",
+                        "FacesDetectSegmentsFeaturePointsDetect.ndf",
+                        "FacesDetectSegmentsLiveness.ndf",
+                        "FacesCreateTemplateSmall.ndf",
+                        "FacesCreateTemplateMediumLite.ndf"]
+
+project.ext.nativeLibsInclude = ["**/libjnidispatch.so",
+                                 "**/libNCore.so",
+                                 "**/libNLicensing.so",
+                                 "**/libNFaceVerification.so",
+                                 "**/libNGui.so",
+                                 "**/libNMedia.so",
+                                 "**/libNMediaProc.so",
+                                 "**/libopenblas.so"]

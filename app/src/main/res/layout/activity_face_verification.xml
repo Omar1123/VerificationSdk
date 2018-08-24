@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.company.jak.faceverification.FaceVerificationActivity">
+
+    <com.neurotec.face.verification.view.NFaceVerificationView
+        android:id="@+id/nFaceView"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="5">
+
+    </com.neurotec.face.verification.view.NFaceVerificationView>
+
+    <LinearLayout
+        android:id="@+id/operation_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/button_enroll"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/msg_enroll" />
+
+        <Button
+            android:id="@+id/button_verify"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="@string/msg_verify" />
+
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="@string/msg_cancel" />
+    </LinearLayout>
+</LinearLayout>
